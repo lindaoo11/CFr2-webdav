@@ -230,7 +230,7 @@ async function handlePropfind(request: Request, bucket: R2Bucket, bucketName: st
       }
     }
 
-    const xml = generatePropfindResponse(bucketName, resource_path, props);
+    const xml = generatePropfindResponse(request.url, resource_path, props);
     logger.info("Generated XML for PROPFIND:", xml);
     return new Response(xml, {
       status: 207,
